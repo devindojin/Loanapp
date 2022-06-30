@@ -66,6 +66,7 @@ class CreditCardWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 25.0, top: 5.0),
                   child: Text(
                     number,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -90,27 +91,28 @@ class CreditCardWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Column(
-                        children: [
-                          const Text(
-                            'Date',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontFamily: 'Myriad Pro',
+                      if (expDate.isNotEmpty)
+                        Column(
+                          children: [
+                            const Text(
+                              'Date',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontFamily: 'Myriad Pro',
+                              ),
                             ),
-                          ),
-                          Text(
-                            expDate,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Myriad Pro',
+                            Text(
+                              expDate,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Myriad Pro',
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
+                          ],
+                        ),
                     ],
                   ),
                 ),

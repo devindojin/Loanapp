@@ -33,6 +33,6 @@ class User {
         phone: json["phone"],
         accountNumber: json["account_number"],
         profilePicture: json["profile_picture"],
-        status: json["status"],
+        status: json["status"].toString(),
       );
 }

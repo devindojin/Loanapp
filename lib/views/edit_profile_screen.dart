@@ -24,7 +24,25 @@ class EditProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('Profile'),
+        title: const Text(
+          'PROFILE',
+          style: TextStyle(
+            color: AppColor.blue,
+            fontFamily: 'Bahnschrift',
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: AppColor.blue, //change your color here
+        ),
+        leading: IconButton(
+          iconSize: 24,
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -125,7 +143,7 @@ class EditProfileScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: AppColor.blue,
-                        width: 2,
+                        width: 3.0,
                       ),
                     ),
                   ),
@@ -142,7 +160,7 @@ class EditProfileScreen extends StatelessWidget {
                           const BorderRadius.all(Radius.circular(5.0)),
                       border: Border.all(
                         color: AppColor.blue,
-                        width: 0.15,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
@@ -210,7 +228,7 @@ class EditProfileScreen extends StatelessWidget {
                           const BorderRadius.all(Radius.circular(5.0)),
                       border: Border.all(
                         color: AppColor.blue,
-                        width: 0.15,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
@@ -280,7 +298,7 @@ class EditProfileScreen extends StatelessWidget {
                           const BorderRadius.all(Radius.circular(5.0)),
                       border: Border.all(
                         color: AppColor.blue,
-                        width: 0.15,
+                        width: 1,
                       ),
                     ),
                     child: Padding(

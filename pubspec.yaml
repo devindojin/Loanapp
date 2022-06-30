@@ -14,14 +14,15 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
-  get: ^4.6.1
+  get: ^4.6.5
   http: ^0.13.4
   carousel_slider: ^4.1.1
-  syncfusion_flutter_charts: ^20.1.51
-  percent_indicator: ^4.0.0
+  syncfusion_flutter_charts: ^20.1.57
+  percent_indicator: ^4.2.2
   image_picker: ^0.8.5
   shared_preferences: ^2.0.13
   url_launcher: ^6.1.0
+  intro_views_flutter: ^3.2.0
 
 dev_dependencies:
   flutter_test:

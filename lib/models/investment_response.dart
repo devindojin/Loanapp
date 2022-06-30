@@ -5,11 +5,13 @@ class InvestmentResponse {
     this.investmentDetail,
     this.cardDetails,
     this.profit,
+    this.withdraw,
   });
 
   InvestmentDetail? investmentDetail;
   CardDetails? cardDetails;
   String? profit;
+  String? withdraw;
 
   factory InvestmentResponse.fromJson(Map<String, dynamic> json) =>
       InvestmentResponse(
@@ -18,6 +20,7 @@ class InvestmentResponse {
             : InvestmentDetail.fromJson(json["investment_detail"]),
         cardDetails: CardDetails.fromJson(json["card_details"]),
         profit: json["profit"],
+        withdraw: json["withdraw_amount"],
       );
 }
 
@@ -61,7 +64,7 @@ class InvestmentDetail {
   factory InvestmentDetail.fromJson(Map<String, dynamic> json) =>
       InvestmentDetail(
         totalBalance: TotalBalance.fromJson(json["total_balance"]),
-        duration: json["duration"],
+        duration: json["duration"].toString(),
         interestRate: json["interest_rate"],
         capitalAmount: json["capital_amount"],
       );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shelbi_finance/views/intro_screen.dart';
 
 import 'constants/api.dart';
+import 'constants/app_color.dart';
 import 'controllers/auth_controller.dart';
 import 'services/api_client.dart';
 import 'views/home_screen.dart';
@@ -29,15 +31,28 @@ class ShelbiFinanceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'ShelBi Finance',
+      title: 'Shelbi Finance',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: AppColor.blue, //change your color here
+          ),
+          titleTextStyle: TextStyle(
+            color: AppColor.blue,
+            fontFamily: 'Bahnschrift',
+          ),
+        ),
         primarySwatch: Colors.blue,
       ),
       home: Obx(
-        () => Get.find<AuthController>().isLogged.value
-            ? HomeScreen()
-            : SignInScreen(),
+        () => Get.find<AuthController>().isUserFirstTime.value
+            ? const IntroScreen()
+            : Get.find<AuthController>().isLogged.value
+                ? HomeScreen()
+                : SignInScreen(),
       ),
     );
   }

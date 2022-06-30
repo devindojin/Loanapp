@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shelbi_finance/constants/api.dart';
-import 'package:shelbi_finance/controllers/auth_controller.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:shelbi_finance/constants/app_color.dart';
 import 'package:shelbi_finance/constants/app_image.dart';
-import 'package:shelbi_finance/views/edit_profile_screen.dart';
-import 'package:shelbi_finance/views/profit_screen.dart';
+import 'package:shelbi_finance/controllers/auth_controller.dart';
+
+import '../edit_profile_screen.dart';
+import '../profit_screen.dart';
+import '../support_screen.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -13,7 +14,8 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xFF29303C),
+      // backgroundColor: const Color(0xFF29303C),
+      backgroundColor: AppColor.primaryBackground,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,9 +42,9 @@ class NavBar extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 70.0, left: 20.0),
                 child: Image.asset(
-                  AppImage.newLogo,
-                  height: 100,
-                  color: Colors.black,
+                  AppImage.blackLogo,
+                  height: 125,
+                  // color: Colors.black,
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -74,7 +76,7 @@ class NavBar extends StatelessWidget {
                   Icons.assignment,
                   onTap: () async {
                     Get.back();
-                    await launchUrl(Uri.parse(Api.SUPPORT));
+                    Get.to(() => const SupportScreen());
                   },
                 ),
                 _buildDrawerRow(
@@ -109,7 +111,7 @@ class NavBar extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            title == 'SETTINGS'
+            title == 'SUPPORT / ASSISTANCE'
                 ? Image.asset(
                     AppImage.assistance,
                     height: 24,
@@ -118,7 +120,7 @@ class NavBar extends StatelessWidget {
                 : Icon(
                     iconData,
                     size: 25,
-                    color: Colors.lightBlue,
+                    color: AppColor.blue,
                   ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0),

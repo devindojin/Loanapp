@@ -25,11 +25,11 @@ class SignInScreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  AppImage.logo,
-                  width: 150,
-                  height: 150,
+                  AppImage.bigLogo,
+                  width: 160,
+                  height: 160,
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 20),
                 Column(
                   children: <Widget>[
                     Container(
@@ -40,7 +40,7 @@ class SignInScreen extends StatelessWidget {
                             const BorderRadius.all(Radius.circular(5.0)),
                         border: Border.all(
                           color: AppColor.blue,
-                          width: 0.15,
+                          width: 1,
                         ),
                       ),
                       child: Padding(
@@ -110,7 +110,7 @@ class SignInScreen extends StatelessWidget {
                             const BorderRadius.all(Radius.circular(5.0)),
                         border: Border.all(
                           color: AppColor.blue,
-                          width: 0.15,
+                          width: 1,
                         ),
                       ),
                       child: Padding(
@@ -206,6 +206,39 @@ class SignInScreen extends StatelessWidget {
                       child: const Center(
                         child: Text(
                           "Sign In",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 20.0,
+                            letterSpacing: 1.0,
+                            fontFamily: 'Bahnschrift',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: GestureDetector(
+                    onTap: () async {
+                      await launchUrl(Uri.parse('https://shelbifinance.com/'));
+                    },
+                    child: Container(
+                      height: 50.0,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8.0)),
+                        border: Border.all(
+                          color: AppColor.blue,
+                          width: 1.0,
+                        ),
+                        // color: AppColor.blue,
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Read More",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w400,

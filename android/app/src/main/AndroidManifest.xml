@@ -2,7 +2,7 @@
     package="com.example.shelbi_finance">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="ShelBi Finance"
+        android:label="Shelbi Finance"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -53,4 +53,17 @@ class ProfitController extends GetxController with BaseController {
 
     profit.value = Profit.fromJson(response);
   }
+
+  /// Find the first date of the week which contains the provided date.
+  DateTime findFirstDateOfTheWeek() {
+    final dateTime = DateTime.now();
+    return dateTime.subtract(Duration(days: dateTime.weekday - 1));
+  }
+
+  /// Find last date of the week which contains provided date.
+  DateTime findLastDateOfTheWeek() {
+    final dateTime = DateTime.now();
+    return dateTime
+        .add(Duration(days: DateTime.daysPerWeek - dateTime.weekday));
+  }
 }

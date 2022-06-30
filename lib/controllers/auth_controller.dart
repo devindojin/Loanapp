@@ -23,6 +23,16 @@ class AuthController extends GetxController with BaseController {
   });
 
   final RxBool isLogged = false.obs;
+  // final RxBool loading = false.obs;
+  final RxBool isUserFirstTime = true.obs;
+
+  @override
+  void onInit() {
+    isUserFirstTime.value =
+        sharedPreferences.getBool(PreferenceKey.firstTime) ?? true;
+
+    super.onInit();
+  }
 
   @override
   void onReady() {
@@ -31,8 +41,13 @@ class AuthController extends GetxController with BaseController {
     super.onReady();
   }
 
+  void setUserFirstTime() async {
+    await sharedPreferences.setBool(PreferenceKey.firstTime, false);
+  }
+
   void onSignIn() async {
     showLoading();
+    // loading.value = true;
 
     final body = {
       'email': emailController.value.text,
@@ -43,6 +58,7 @@ class AuthController extends GetxController with BaseController {
         await apiClient.post(Api.LOGIN, body: body).catchError(handleError);
 
     hideLoading();
+    // loading.value = false;
 
     if (response != null) {
       String token = response['token'];
